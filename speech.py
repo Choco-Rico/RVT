@@ -221,8 +221,8 @@ class MyApplication:
 
     def load_api(self):
         load_dotenv()
-        self.RVT_OPENAI_API_KEY = os.getenv('RVT_OPENAI_API_KEY', '')
-        self.RVT_DEEPL_API_KEY = os.getenv('RVT_DEEPL_API_KEY', '')
+        self.RVT_OPENAI_API_KEY = os.getenv('RVT_OPENAI_API_KEY', None)
+        self.RVT_DEEPL_API_KEY = os.getenv('RVT_DEEPL_API_KEY', None)
         if not self.RVT_OPENAI_API_KEY:
             print("OpenAI API key is not set. Please set in Settings tab")
         if not self.RVT_DEEPL_API_KEY:
