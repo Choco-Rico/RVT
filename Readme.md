@@ -1,16 +1,62 @@
-## 🎙 Realtime Voice Translator 🎙
+## 🎙 リアルタイム音声翻訳機 🎙 
 
-* This is realtime voice translator using webrtc(VAD), Whisper, DeepL, and gtts.
-* OpenAI API and DeepLAPI must be obtained for use.
-* Please install a stable version from Stable.
-* There might be future updates.
+* これはリアルタイム音声翻訳アプリです🤖
+* OpenAI APIとDeepLAPIを取得することで使用できます。
+* また、VBCABLEという仮想オーディオデバイスをインストールし出力デバイスにすることで通話相手に処理後の声が届くようになります。
 
-#### sorry, Mac is not supported.
 
-## 🔦install
+## 🔦インストール
 
-* Please install from the latest. ``git clone https://github.com/Choco-Rico/RVT.git``
-* Please execute speech.exe and enter the API key in the setting tab.
-* Please set the input and output destinations in the audio tab.
 
-I have confirmed the operation on my sub PC, but please let me know if any problems occur.
+* releasesから最新版のソースコードをインストールしてください。
+* ``speech.exe``を実行し、settingタブにAPIキー、audioタブにデバイスを入力してください。
+
+
+## 💡使い方
+
+
+* 正しい音声デバイスが認識されると、マイクに喋りかけた声が翻訳され音声として出力されます。
+* mainタブのON-OFFは、マイクが声を拾うかどうかのトリガーで、OFFの間は反応しなくなります。
+* fileタブではファイルの音声を読み込むこともできます。
+
+
+VBCABLEのインストール：[VBCABLE](https://vb-audio.com/Cable/)
+
+
+## 注意等
+* APIは.envに保存されます。
+* Macを持っていないのでMacでは動作確認ができていません。
+* サブPCで動作確認しましたが、もし不具合等ありましたらご連絡ください。
+
+
+## English
+
+## 🎙 Real-time voice translator 🎙
+
+* This is a real-time voice translation application 🤖
+* You can use it by getting OpenAI API and DeepLAPI.
+* You can also install a virtual audio device called VBCABLE and make it the output device so that the caller can hear your voice after processing.
+
+
+## 🔦Installation
+
+
+* Install the latest version of the source code from releases.
+* Run ``speech.exe`` and enter your API key in the setting tab and your device in the audio tab.
+
+
+## 💡How to use.
+
+
+* When the correct audio device is recognized, the voice you speak into the microphone will be translated and output as voice.
+* The main tab ON-OFF triggers whether the microphone picks up the voice or not, and it will not respond while it is OFF.
+* The file tab can also be used to load audio from a file.
+
+
+Installation of VBCABLE: [VBCABLE](https://vb-audio.com/Cable/)
+
+
+## Notes, etc.
+* API is stored in .env.
+* We have not confirmed that it works on a Mac because we do not have a Mac.
+* We have tested it on a sub PC, but if you find any problems, please let us know.
