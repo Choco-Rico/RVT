@@ -276,8 +276,7 @@ class MyApplication:
     
     def start_file(self):
         file_path = self.file_entry.get()
-        if self.selected_option.get() == 'file':
-            self.process_audio_file(file_path)
+        self.process_audio_file(file_path)
 
     def toggle_enabled(self, state):
         self.is_enabled = state
