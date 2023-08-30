@@ -22,12 +22,13 @@
 
 VBCABLEのインストール：[VBCABLE](https://vb-audio.com/Cable/)
 
-
 ## 注意等
 * APIは.envに保存されます。
 * Macを持っていないのでMacでは動作確認ができていません。
 * サブPCで動作確認しましたが、もし不具合等ありましたらご連絡ください。
 
+このアプリケーションは、他の方が開発した多くの素敵なライブラリを使用することで開発・公開することができました。
+全ての関係者様に感謝しています。
 
 ## English
 
@@ -60,3 +61,6 @@ Installation of VBCABLE: [VBCABLE](https://vb-audio.com/Cable/)
 * API is stored in .env.
 * We have not confirmed that it works on a Mac because we do not have a Mac.
 * We have tested it on a sub PC, but if you find any problems, please let us know.
+
+We were able to develop and publish this application by using many nice libraries developed by others.
+We thank all parties involved.
