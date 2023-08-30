@@ -50,6 +50,7 @@ class MyApplication:
         self.selected_input_device = None
         self.selected_output_device = None
         self.selected_language = 'English to Japanese'
+
         self.load_api()
         self.load_audio_setting()
         self.audio_dir = None
@@ -177,7 +178,8 @@ class MyApplication:
         self.language_save_button_input = tk.Button(self.input_file_frame, text="save", command=self.save_translate_language_input, bg="#555555", fg="white")
         self.language_save_button_input.place(x=250, y=60)
 
-        self.start_button = tk.Button(self.input_file_frame, text="start", command=self.start_file)
+        self.start_button = tk.Button(self.input_file_frame, text="start", command=self.start_thread)
+
         self.start_button.place(x=100, y=90)
 
         self.file_tab_log_text = tk.Text(self.input_file_frame, bg="#333333", fg="white", height=10)
@@ -261,12 +263,16 @@ class MyApplication:
         print("Audio settings saved.")
 
     def save_translate_language_lang(self):
-        self.selected_language_lang = self.language_combobox_lang.get()
-        print("Language setting saved:", self.selected_language_lang)
+        self.selected_language = self.language_combobox_lang.get()
+        index = self.language_combobox_input['values'].index(self.selected_language)
+        self.language_combobox_input.current(index)
+        print("Language setting saved:", self.selected_language)
 
     def save_translate_language_input(self):
-        self.selected_language_input = self.language_combobox_input.get()
-        print("Language setting saved:", self.selected_language_input)
+        self.selected_language = self.language_combobox_input.get()
+        index = self.language_combobox_lang['values'].index(self.selected_language)
+        self.language_combobox_lang.current(index)
+        print("Language setting saved:", self.selected_language)
 
     def select_audio_file(self):
         file_path = filedialog.askopenfilename(filetypes=[("Audio files", "*.wav *.mp3 *.flac")])
@@ -278,6 +284,10 @@ class MyApplication:
         file_path = self.file_entry.get()
         self.process_audio_file(file_path)
 
+    def start_thread(self):
+        thread = threading.Thread(target=self.start_file)
+        thread.start()
+        
     def toggle_enabled(self, state):
         self.is_enabled = state
         if self.is_enabled:
@@ -330,7 +340,6 @@ class MyApplication:
                 translated_text_str = translated_text.text if isinstance(translated_text, deepl.translator.TextResult) else translated_text
                 print('translated_text: ', translated_text_str)
                 self.text_to_speech_google(translated_text_str, language)
-
             elif self.selected_language == 'Japanese to English':
                 language = 'ja2en'
                 print(f"Processing audio file: {audio_file_path}")
@@ -434,6 +443,7 @@ class MyApplication:
         except Exception as e:
             print(f"taw-Error processing audio file: {e}")
         self.reset_program()
+
     def translate_text_deepl(self, text, source_lang, target_lang):
         try:
             print('text2: ', text)
